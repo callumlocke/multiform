@@ -1,7 +1,7 @@
 {
   "name": "multiform",
   "description": "Write NPM modules in ES6/7 with multiple builds optimised for different V8 versions.",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
   "author": "Callum Locke",
   "bugs": {
     "url": "https://github.com/callumlocke/multiform/issues"
