@@ -21,7 +21,7 @@ var multiform = {
       build = config.builds[i];
 
       if (multiform.compatible(build.version)) {
-        var lib = path.resolve(moduleRoot, build.lib || 'lib-' + i);
+        var lib = path.resolve(moduleRoot, build.dir || 'lib-' + i);
         if (filename) lib = path.join(lib, filename);
         return lib;
       }
