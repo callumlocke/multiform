@@ -8,9 +8,10 @@ while (engineVersion.length < 4) engineVersion.push('0');
 var moduleRoot = path.dirname(module.parent.filename);
 delete require.cache[__filename];
 
+
 var multiform = {
   /**
-   * Parses the calling module's `.multiformrc` and returns the build directory
+   * Parses the calling module's `.multiformrc` and returns the dist directory
    * of the first build config that is suitable for the current platform.
    */
   select: function select(filename) {
@@ -21,9 +22,9 @@ var multiform = {
       build = config.builds[i];
 
       if (multiform.compatible(build.version)) {
-        var lib = path.resolve(moduleRoot, build.dir || 'lib-' + i);
-        if (filename) lib = path.join(lib, filename);
-        return lib;
+        var dist = path.resolve(moduleRoot, build.dir || 'dist-' + i);
+        if (filename) dist = path.join(dist, filename);
+        return dist;
       }
     }
 
@@ -64,7 +65,7 @@ var multiform = {
 
   /**
    * Changes the module root. For when you need to require multiform from some
-   * file that is for some reason not in the project root where the builds are.
+   * file that is not in the project root adjacent to the dist directories.
    */
   setModuleRoot: function setModuleRoot(root) {
     moduleRoot = root;
